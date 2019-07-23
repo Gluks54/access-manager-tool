@@ -1,0 +1,14 @@
+{
+  "trello": {
+  "projectId": "5d32e1d1027030023622dd81",
+  "email":  "YahorSpy50322@gmail.com",
+  "key":"ea206614eb8c90f0df59e064b2662b45&token=7edf7707ab1ac85b7836132b49a4c2e74ee6642e63af58d28a16f1ba49092d3e"
+},
+  "gitlab": [{
+    "projectId":"13381233",
+    "privateToken":"uX34zMyF7UbeEge5xsz8"
+  },{"projectId":"!!!!!!",
+    "privateToken":"!!!!!!!!!!!!!"}],
+
+  "googleDrive": {"fileId" : "1_Ds7jQ9r4OpjFm9gduf7WzvWxG9mKVpv"}
+}
