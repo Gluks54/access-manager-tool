@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bbae252-6be1-4f27-9b33-fa03cef4e03f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="6bbae252-6be1-4f27-9b33-fa03cef4e03f" name="Default Changelist" comment="Merge branch 'dev' of https://gitlab.com/microlms360/access-manager-tool into dev&#10;&#10;# Conflicts:&#10;#&#9;.gitignore">
       <change afterPath="$PROJECT_DIR$/src/main/java/addGoogleDrive/GoogleDriveService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/addGoogleDrive/Runner.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/addToGitLab/GitLabService.java" afterDir="false" />
@@ -17,19 +15,9 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/cli_programm/model/Trello.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/configuration.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/credentials.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/.keep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/addToTrello/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/addToTrello/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/addToGitLab/GitLabService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToGitLab/GitLabService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/addToGitLab/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToGitLab/Runner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/addToTrello/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToTrello/Runner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/addToTrello/TrelloService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToTrello/TrelloService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cli_programm/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cli_programm/Runner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/credentials.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
     </list>
@@ -58,13 +46,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="191" column="65" selection-start-line="191" selection-start-column="65" selection-end-line="191" selection-end-column="65" />
+            <state relative-caret-position="38">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../docker-compose.dev.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -76,29 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
+            <state relative-caret-position="159">
               <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/lang/SuppressWarnings.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/addToTrello/Runner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -124,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/configuration.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="252">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -177,8 +157,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/tets.json" />
         <option value="$PROJECT_DIR$/src/main/java/addToTrello/Runner.java" />
         <option value="$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -218,11 +198,6 @@
             <path>
               <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="tokens" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -364,12 +339,12 @@
       <workItem from="1563901285817" duration="15732000" />
       <workItem from="1563918139073" duration="597000" />
       <workItem from="1563987328177" duration="6075000" />
-      <workItem from="1564064974307" duration="510000" />
+      <workItem from="1564064974307" duration="1988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49707000" />
+    <option name="totallyTimeSpent" value="51185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="860" extended-state="6" />
@@ -388,9 +363,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.7653479" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.44474763" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.44474763" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5006435" side_tool="true" weight="0.20873123" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3287858" />
       <window_info anchor="right" id="Palette" order="0" />
@@ -407,6 +382,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -576,24 +577,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/credentials.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/tets.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -617,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="191" column="65" selection-start-line="191" selection-start-column="65" selection-end-line="191" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tokens/StoredCredential">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -633,8 +613,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
+        <state relative-caret-position="159">
           <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../docker-compose.dev.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/credentials.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>
