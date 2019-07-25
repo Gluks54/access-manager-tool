@@ -1,0 +1,6 @@
+[
+  {"id":"5d32e1d1027030023622dd82","idMember":"5c837a744ee84d12fdb119b1","memberType":"admin","unconfirmed":false,"deactivated":false,"orgMemberType":"admin",
+  "member":
+  {"id":"5c837a744ee84d12fdb119b1","avatarHash":null,"avatarUrl":null,"bio":"","bioData":null,"confirmed":true,"fullName":"Gor Ver","idEnterprise":null,"idEnterprisesDeactivated":[],"idMemberReferrer":null,"idPremOrgsAdmin":[],"initials":"GV","memberType":"normal","nonPublic":{},"nonPublicAvailable":false,"products":[],"url":"https://trello.com/gorver","username":"gorver","status":"disconnected"}},
+  {"id":"5d375a18bf7cb924f4d50735","idMember":"5d32e26c081d10760857ef89","memberType":"normal","unconfirmed":false,"deactivated":false,"member":{"id":"5d32e26c081d10760857ef89","avatarHash":null,"avatarUrl":null,"bio":"","bioData":null,"confirmed":true,"fullName":"YahorSpy50322 SpyKing3343","idEnterprise":null,"idEnterprisesDeactivated":null,"idMemberReferrer":null,"idPremOrgsAdmin":[],"initials":"YS","memberType":"normal","nonPublic":{},"nonPublicAvailable":false,"products":[],"url":"https://trello.com/yahorspy50322spyking3343","username":"yahorspy50322spyking3343","status":"disconnected"}}
+]

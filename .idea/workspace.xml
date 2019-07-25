@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bbae252-6be1-4f27-9b33-fa03cef4e03f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/addGoogleDrive/GoogleDriveService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/addGoogleDrive/Runner.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/addToGitLab/GitLabService.java" afterDir="false" />
@@ -15,6 +17,19 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/cli_programm/model/Trello.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/configuration.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/credentials.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/addToTrello/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/addToTrello/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addGoogleDrive/GoogleDriveService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/addToGitLab/GitLabService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToGitLab/GitLabService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/addToGitLab/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToGitLab/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/addToTrello/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToTrello/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/addToTrello/TrelloService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/addToTrello/TrelloService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cli_programm/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cli_programm/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/credentials.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
     </list>
@@ -32,93 +47,76 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/addGoogleDrive/Runner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/Runner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-277">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/Reader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1278">
-              <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/addGoogleDrive/GoogleDriveService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="911">
-              <caret line="74" column="78" selection-start-line="74" selection-start-column="78" selection-end-line="74" selection-end-column="78" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/model/Trello.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#84#85#0" expanded="true" />
-                <element signature="e#116#117#0" expanded="true" />
-                <element signature="e#148#149#0" expanded="true" />
-                <element signature="e#176#177#0" expanded="true" />
-                <element signature="e#206#207#0" expanded="true" />
-                <element signature="e#232#233#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+            <state relative-caret-position="310">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="779">
+              <caret line="191" column="65" selection-start-line="191" selection-start-column="65" selection-end-line="191" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tokens/StoredCredential">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="116" lean-forward="true" selection-start-line="1" selection-start-column="116" selection-end-line="1" selection-end-column="116" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/credentials.json">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/lang/SuppressWarnings.class">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/addToTrello/Runner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/credentials.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/tets.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -135,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/addToGitLab/GitLabService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="468">
+              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,30 +152,33 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/addToTrello/Runner.java" />
         <option value="$PROJECT_DIR$/src/main/java/addGoogleDrive/eree.java" />
         <option value="$PROJECT_DIR$/src/main/resources/client_secrets.json" />
         <option value="$PROJECT_DIR$/src/main/java/addGoogleDrive/OAuth2Sample.java" />
         <option value="$PROJECT_DIR$/src/main/java/addGoogleDrive/DriveSample.java" />
         <option value="$PROJECT_DIR$/src/main/java/addGoogleDrive/DriveQuickstart.java" />
         <option value="$PROJECT_DIR$/src/main/java/addGoogleDrive/Runner.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cli_programm/model/Trello.java" />
-        <option value="$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java" />
         <option value="$PROJECT_DIR$/src/main/java/cli_programm/model/GitLab.java" />
         <option value="$PROJECT_DIR$/src/main/java/cli_programm/model/GoogleDrive.java" />
         <option value="$PROJECT_DIR$/src/main/resources/configuration.json" />
-        <option value="$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cli_programm/Reader.java" />
         <option value="$PROJECT_DIR$/src/main/java/addToGitLab/GitLabService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cli_programm/Runner.java" />
         <option value="$PROJECT_DIR$/src/main/java/addGoogleDrive/GoogleDriveService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java" />
         <option value="$PROJECT_DIR$/src/main/resources/credentials.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/tets.json" />
+        <option value="$PROJECT_DIR$/src/main/java/addToTrello/Runner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -210,7 +211,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,74 +222,13 @@
             <path>
               <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="addGoogleDrive" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="addToGitLab" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="addToTrello" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cli_programm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cli_programm" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnBoardProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OnBoardProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="tokens" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -327,7 +267,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Runner (3)">
+  <component name="RunManager" selected="Application.Runner (1)">
     <configuration name="DriveQuickstart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="addGoogleDrive.DriveQuickstart" />
       <module name="OnBoardProject" />
@@ -395,11 +335,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Runner (1)" />
         <item itemvalue="Application.Runner (3)" />
         <item itemvalue="Application.Runner (2)" />
         <item itemvalue="Application.DriveQuickstart" />
         <item itemvalue="Application.DriveSample" />
-        <item itemvalue="Application.Runner (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -421,16 +361,18 @@
       <workItem from="1563734051950" duration="162000" />
       <workItem from="1563734223033" duration="8978000" />
       <workItem from="1563804812894" duration="9465000" />
-      <workItem from="1563901285817" duration="13745000" />
+      <workItem from="1563901285817" duration="15732000" />
+      <workItem from="1563918139073" duration="597000" />
+      <workItem from="1563987328177" duration="6075000" />
+      <workItem from="1564064974307" duration="510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40538000" />
+    <option name="totallyTimeSpent" value="49707000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1600" height="860" extended-state="7" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1600" height="860" extended-state="6" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -440,7 +382,7 @@
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287858" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993565" visible="true" weight="0.15552524" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993565" weight="0.366985" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39972714" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -448,7 +390,7 @@
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.44474763" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5006435" side_tool="true" weight="0.20873123" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3287858" />
       <window_info anchor="right" id="Palette" order="0" />
@@ -460,7 +402,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="9" visible="true" weight="0.14221364" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="9" visible="true" weight="0.12033462" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,6 +416,12 @@
           <line>21</line>
           <properties />
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -531,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/model/GitLab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -562,31 +503,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/addToTrello/Runner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/addGoogleDrive/Runner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration.json">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/Runner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1278">
-          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        <state relative-caret-position="378">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -596,14 +523,24 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/addToGitLab/Runner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="36" />
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/Runner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/Reader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-277">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="1116">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/addGoogleDrive/GoogleDriveService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="74" column="78" selection-start-line="74" selection-start-column="78" selection-end-line="74" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -612,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cli_programm/model/Trello.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="144">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#84#85#0" expanded="true" />
             <element signature="e#116#117#0" expanded="true" />
@@ -625,10 +562,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/lang/SuppressWarnings.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/addToTrello/Runner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/credentials.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/tets.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/addToGitLab/GitLabService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        <state relative-caret-position="468">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -637,28 +609,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/addToTrello/TrelloService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+        <state relative-caret-position="310">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/addGoogleDrive/GoogleDriveService.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="911">
-          <caret line="74" column="78" selection-start-line="74" selection-start-column="78" selection-end-line="74" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="779">
+          <caret line="191" column="65" selection-start-line="191" selection-start-column="65" selection-end-line="191" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/credentials.json">
+    <entry file="file://$PROJECT_DIR$/tokens/StoredCredential">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="18">
+          <caret line="1" column="116" lean-forward="true" selection-start-line="1" selection-start-column="116" selection-end-line="1" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -10,7 +10,12 @@ public class Runner {
         String email = "YahorSpy50322@gmail.com";
         String key = "ea206614eb8c90f0df59e064b2662b45&token=7edf7707ab1ac85b7836132b49a4c2e74ee6642e63af58d28a16f1ba49092d3e";
 
-        trelloService.addToTrello(projectId,email,key);
+//        trelloService.addToTrello(projectId,email,key);
+
+
+        String userName = "yahorspy50322spyking3343";
+        String rezult = trelloService.getRole(projectId,userName,key);
+        System.out.println(rezult);
 
     }
 }
