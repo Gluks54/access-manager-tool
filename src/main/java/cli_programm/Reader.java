@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 
 
 public class Reader {
-    public Trello readTrelloConf(){
+    public static Trello readTrelloConf(){
         JSONParser parser = new JSONParser();
         Trello trello = null;
         try {
@@ -30,8 +30,7 @@ public class Reader {
         return trello;
     }
 
-
-    public List<GitLab> readGitLabConf(){
+    public static List<GitLab> readGitLabConf(){
             JSONParser parser = new JSONParser();
             List<GitLab> gitLabList = new ArrayList<>();
 
@@ -55,7 +54,7 @@ public class Reader {
             return gitLabList;
         }
 
-        public GoogleDrive readGoogleDriveConf(){
+        public static GoogleDrive readGoogleDriveConf(){
 
             JSONParser parser = new JSONParser();
             GoogleDrive googleDrive = null;

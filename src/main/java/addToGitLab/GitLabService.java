@@ -1,34 +1,45 @@
 package addToGitLab;
 
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-import java.util.HashMap;
-import java.util.Map;
+import org.gitlab4j.api.GitLabApi;
+import org.gitlab4j.api.GitLabApiException;
+import org.gitlab4j.api.models.ProjectUser;
+import java.util.List;
 
 public class GitLabService {
 
-    public HttpResponse<JsonNode> addToGitLab(String projectId,String privateToken,String user_id) throws UnirestException {
+    public GitLabService(String userName,String pass) throws GitLabApiException {
+        this.userName = userName;
+        this.pass = pass;
+        gitLabApi = getCredential(userName,pass);
+    }
 
-        Map<String, Object> fields = new HashMap<>();
-        fields.put("user_id",user_id);
-        fields.put("access_level","30");
+   private  String userName;
+   private  String pass;
+   private  GitLabApi gitLabApi = null;
 
-        Map<String, String> headers = new HashMap<>();
-        headers.put("accept", "application/json");
+    public GitLabApi getCredential(String userName,String pass) throws GitLabApiException {
+        return GitLabApi.oauth2Login("https://gitlab.com", userName,pass);
+    }
 
-        String url =
-                String.format("https://gitlab.com/api/v4/projects/%s/members?private_token=%s",projectId,privateToken);
+    public void addToGitLab(int projectId,String email,int accessLevel) throws GitLabApiException {
+        gitLabApi.getProjectApi().addMember(projectId,getUserByEmail(email),accessLevel);
+    }
 
-        HttpResponse<JsonNode> jsonResponse =
-                Unirest.post(url)
-                .headers(headers)
-                .fields(fields)
-                .asJson();
+    public void getStatus(String projectId) throws  GitLabApiException {
+        List<ProjectUser> projectPager =  gitLabApi
+                .getProjectApi()
+                .getProjectUsers(projectId);
 
-        System.out.println(jsonResponse.getBody());
-//        System.out.println("successfully added to gitlab repositories");
-        return jsonResponse;
+        for (ProjectUser i:projectPager) {
+            System.out.println("name: " + i.getName()
+            + " username: " + i.getUsername() + " id: " + i.getId() + " email: " + i.getEmail());
+        }
+    }
+    public void delete(int projectId,String email) throws GitLabApiException {
+        gitLabApi.getProjectApi().removeMember(projectId,getUserByEmail(email));
+    }
+
+    public Integer getUserByEmail(String email) throws GitLabApiException {
+       return gitLabApi.getUserApi().getUserByEmail(email).getId();
     }
 }

@@ -2,24 +2,29 @@ package cli_programm.model;
 
 public class GitLab {
 
-
     public String getProjectId() {
         return projectId;
     }
 
-    public String getPrivateToken() {
-        return privateToken;
+    public String getUserName() {
+        return userName;
     }
 
+    public String getPass() {
+        return pass;
+    }
 
     @Override
     public String toString() {
         return "GitLab{" +
                 "projectId='" + projectId + '\'' +
-                ", privateToken='" + privateToken + '\'' +
+                ", userName='" + userName + '\'' +
+                ", pass='" + pass + '\'' +
                 '}';
     }
 
     String projectId;
-    String privateToken;
+    String userName;
+    String pass;
+
 }
