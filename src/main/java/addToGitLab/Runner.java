@@ -6,10 +6,10 @@ import org.gitlab4j.api.GitLabApiException;
 public class Runner {
     public static void main(String[] args) throws GitLabApiException {
 
-        int projectId = 13344791;
-        String userName = "YahorSpy";
-        String pass = "4vfAwqPFTnfh6F6";
-        String email ="gluks0575@gmail.com";
+        int projectId = 13343892;
+        String userName = "Gluks54";
+        String pass = "Jk8293196";
+        String email ="offiseword@mail.ru";
 
         GitLabService gitLabService = new GitLabService(userName,pass);
         System.out.println("initiate state");

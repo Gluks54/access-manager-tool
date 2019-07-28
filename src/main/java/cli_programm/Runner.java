@@ -33,7 +33,7 @@ public class Runner {
                 System.out.println("Trello status:");
                 trelloService.getStatus();
 
-                System.out.println("Write your email for google");
+                System.out.println("\nWrite your email for google");
 
                 String googleEmail = scanner.next();
                 googleDriveService.addToGoogleDrive(googleEmail);
@@ -73,9 +73,9 @@ public class Runner {
             }
 
             if(result.equals("dgoogl")){
-                System.out.println("Write email:");
-                String email = scanner.next();
-                googleDriveService.delete(email);
+                System.out.println("Write userId:");
+                String userId = scanner.next();
+                googleDriveService.delete(userId);
                 googleDriveService.getStatus();
             }
             if(result.equals("dGit")){
