@@ -4,9 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-    <groupId>OnBoardProject</groupId>
-    <artifactId>OnBoardProject</artifactId>
+    <groupId>access-manager-tool</groupId>
+    <artifactId>access-manager-tool</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <build>
         <plugins>
             <plugin>
@@ -33,14 +34,7 @@
             <version>v3-rev173-1.25.0</version>
         </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>com.google.apis</groupId>-->
-<!--                <artifactId>google-api-services-drive</artifactId>-->
-<!--                <version>v2-rev362-1.25.0</version>-->
-<!--            </dependency>-->
-
-
-        <dependency>
+       <dependency>
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-oauth2</artifactId>
             <version>v1-rev155-1.25.0</version>
@@ -51,6 +45,7 @@
             <artifactId>google-oauth-client-jetty</artifactId>
             <version>1.11.0-beta</version>
         </dependency>
+
         <dependency>
             <groupId>com.google.http-client</groupId>
             <artifactId>google-http-client</artifactId>
@@ -74,6 +69,5 @@
             <artifactId>gitlab4j-api</artifactId>
             <version>4.12.0</version>
         </dependency>
-
     </dependencies>
 </project>

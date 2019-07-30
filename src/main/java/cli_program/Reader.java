@@ -1,8 +1,8 @@
-package cli_programm;
+package cli_program;
 
-import cli_programm.model.GitLab;
-import cli_programm.model.GoogleDrive;
-import cli_programm.model.Trello;
+import cli_program.model.GitLab;
+import cli_program.model.GoogleDrive;
+import cli_program.model.Trello;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;

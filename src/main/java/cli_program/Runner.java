@@ -1,9 +1,9 @@
-package cli_programm;
+package cli_program;
 
 import addGoogleDrive.GoogleDriveService;
 import addToGitLab.GitLabService;
 import addToTrello.TrelloService;
-import cli_programm.model.GitLab;
+import cli_program.model.GitLab;
 import java.util.List;
 import java.util.Scanner;
 

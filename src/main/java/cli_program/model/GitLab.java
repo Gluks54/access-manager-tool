@@ -1,4 +1,4 @@
-package cli_programm.model;
+package cli_program.model;
 
 public class GitLab {
 
