@@ -19,13 +19,7 @@ fileId - that is Id of the folder which should be share
 https://developers.google.com/drive/api/v3/reference/files/list - just use that page for getting list of id your files
 (you don't should impute any param for request);
 
-Go to google console(https://console.developers.google.com) create a new project after that choose create  credentials-> OAith clientId->Configure consent screen->
-write app name-> you should add scope if you want add missing scope go to Google API Library -> find Google Drive API(enable Api)
-After that again come back to credentials->Configure consent screen-> add scope and you can find (/auth/drive) scope choose it. -> save it;
-That is come back us to previous page now press button "create credentials"->OAith clientId-> web app. In Authorised redirect URIs impute (http://localhost:8888/Callback) - create button.
-
-Now you can download json file and copy/paste to your credential.json file - It should be work;
-But one important things is when you run program and try to add to google drive directory program redirect you to google authentication page
+But one important things is when you run program and try to add to google drive directory, program redirect you to google authentication page
 with warning (This app isn't verified) just choose Advanced -> Go to testname (unsafe) and allow everything--- finally it must work.
 
 
