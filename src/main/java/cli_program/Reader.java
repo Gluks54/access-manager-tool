@@ -3,7 +3,10 @@ package cli_program;
 import cli_program.model.GitLab;
 import cli_program.model.GoogleDrive;
 import cli_program.model.Trello;
+
+import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
@@ -13,12 +16,14 @@ import org.json.simple.parser.JSONParser;
 
 
 public class Reader {
-    public static Trello readTrelloConf(){
+    private static String directory = String.format("%s/conf/configuration.json",System.getProperty("user.home"));
+
+    public static Trello readTrelloConf() throws IOException {
         JSONParser parser = new JSONParser();
         Trello trello = null;
         try {
             Object obj = parser.parse(new FileReader(
-                    "src/main/resources/configuration.json"));
+                    directory));
             JSONObject jsonObject = (JSONObject) obj;
 
           String tempString =  jsonObject.get("trello").toString();
@@ -36,7 +41,7 @@ public class Reader {
 
             try {
                 Object obj = parser.parse(new FileReader(
-                        "src/main/resources/configuration.json"));
+                        directory));
 
                 JSONObject jsonObject = (JSONObject) obj;
                 JSONArray jsonArray = (JSONArray) jsonObject.get("gitlab");
@@ -60,7 +65,7 @@ public class Reader {
             GoogleDrive googleDrive = null;
             try {
                 Object obj = parser.parse(new FileReader(
-                        "src/main/resources/configuration.json"));
+                        directory));
                 JSONObject jsonObject = (JSONObject) obj;
 
                 String tempString =  jsonObject.get("googleDrive").toString();
