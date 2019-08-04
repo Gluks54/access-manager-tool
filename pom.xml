@@ -3,14 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
     <groupId>access-manager-tool</groupId>
     <artifactId>access-manager-tool</artifactId>
     <version>1.0-SNAPSHOT</version>
-<!--    <packaging>jar</packaging>-->
+    <!--<packaging>jar</packaging>-->
     <build>
-
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -36,7 +33,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>cli_program.Runner</mainClass>
+                            <mainClass>com.accessmanagertool.cli_program.Runner</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -45,16 +42,7 @@
                     <outputDirectory>${HOME}/.m2/repository/tk/microlms360/access-manager-tool</outputDirectory>
                 </configuration>
             </plugin>
-
-<!--&lt;!&ndash;            <plugin>&ndash;&gt;-->
-<!--&lt;!&ndash;                <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;                <artifactId>maven-jar-plugin</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;                <version>3.1.2</version>&ndash;&gt;-->
-<!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <outputDirectory>target/jarFile</outputDirectory>&ndash;&gt;-->
-<!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
-<!--&lt;!&ndash;            </plugin>&ndash;&gt;-->
-
+            <!--Copy file to define directory-->
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.0.2</version>
@@ -82,21 +70,15 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
-
-
-
-
-
     </build>
 
     <dependencies>
-    <dependency>
-        <groupId>com.mashape.unirest</groupId>
-        <artifactId>unirest-java</artifactId>
-        <version>1.4.9</version>
-    </dependency>
+        <dependency>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>1.4.9</version>
+        </dependency>
 
         <dependency>
             <groupId>com.google.apis</groupId>

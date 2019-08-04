@@ -1,12 +1,10 @@
-package cli_program;
+package com.accessmanagertool.service;
 
-import cli_program.model.GitLab;
-import cli_program.model.GoogleDrive;
-import cli_program.model.Trello;
+import com.accessmanagertool.model.GitLab;
+import com.accessmanagertool.model.GoogleDrive;
+import com.accessmanagertool.model.Trello;
 
-import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
@@ -15,7 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 
-public class Reader {
+public class ReaderService {
     private static String directory = String.format("%s/.m2/repository/tk/microlms360/access-manager-tool/configuration.json",System.getProperty("user.home"));
 
     public static Trello readTrelloConf()  {

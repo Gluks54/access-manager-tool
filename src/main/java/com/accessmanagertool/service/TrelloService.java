@@ -1,4 +1,4 @@
-package addToTrello;
+package com.accessmanagertool.service;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;

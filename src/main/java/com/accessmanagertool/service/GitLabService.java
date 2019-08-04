@@ -1,4 +1,4 @@
-package addToGitLab;
+package com.accessmanagertool.service;
 
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;

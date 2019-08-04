@@ -1,4 +1,4 @@
-package cli_program.model;
+package com.accessmanagertool.model;
 
 public class GoogleDrive {
     public String getFileId() {
