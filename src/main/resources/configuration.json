@@ -1,0 +1,10 @@
+{
+  "trello": {
+  "projectId": "5d32e1d1027030023622dd81",
+  "key":"ea206614eb8c90f0df59e064b2662b45&token=7edf7707ab1ac85b7836132b49a4c2e74ee6642e63af58d28a16f1ba49092d3e"
+},
+  "gitlab": [{"projectId":"13343892",
+    "userName":"Gluks54","pass": "Jk8293196"}],
+
+  "googleDrive": {"fileId" : "1p95Rfd88CjTsfRu0l3YqV-RhIcL-Y1qa"}
+}

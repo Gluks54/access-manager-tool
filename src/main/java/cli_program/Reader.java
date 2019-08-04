@@ -16,9 +16,9 @@ import org.json.simple.parser.JSONParser;
 
 
 public class Reader {
-    private static String directory = String.format("%s/conf/configuration.json",System.getProperty("user.home"));
+    private static String directory = String.format("%s/.m2/repository/tk/microlms360/access-manager-tool/configuration.json",System.getProperty("user.home"));
 
-    public static Trello readTrelloConf() throws IOException {
+    public static Trello readTrelloConf()  {
         JSONParser parser = new JSONParser();
         Trello trello = null;
         try {
