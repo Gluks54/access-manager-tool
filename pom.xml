@@ -9,6 +9,14 @@
   <version>1.0-SNAPSHOT</version>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.8</version>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>com.mashape.unirest</groupId>
       <artifactId>unirest-java</artifactId>
@@ -84,7 +92,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>tk.microlms.accessmanager.cli.Runner</mainClass>
+              <mainClass>tk.microlms.accessmanager.cli.Main</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

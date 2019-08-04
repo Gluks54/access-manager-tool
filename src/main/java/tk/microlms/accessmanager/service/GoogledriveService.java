@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.List;
 
-public class GoogleDriveService {
+public class GoogledriveService {
 
     private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
@@ -35,13 +35,13 @@ public class GoogleDriveService {
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
     private String fileId;
 
-    public GoogleDriveService(String fileId){
+    public GoogledriveService(String fileId) {
         this.fileId = fileId;
     }
 
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws Exception {
         // Load client secrets.
-        InputStream in = GoogleDriveService.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
+        InputStream in = GoogledriveService.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
         if (in == null) {
             throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
         }
@@ -107,7 +107,7 @@ public class GoogleDriveService {
             List<Permission> tempPermList = listPerm.getPermissions();
 
         for (Permission i:tempPermList) {
-            System.out.println("userName: " + i.getDisplayName() + " email: " +
+            System.out.println("username: " + i.getDisplayName() + " email: " +
                     i.getEmailAddress() + " status: "  + i.getRole() + " Id: " + i.getId());
 
         }

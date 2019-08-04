@@ -6,9 +6,9 @@ import org.gitlab4j.api.models.ProjectUser;
 
 import java.util.List;
 
-public class GitLabService {
+public class GitlabService {
 
-    public GitLabService(String userName,String pass) throws GitLabApiException {
+    public GitlabService(String userName, String pass) throws GitLabApiException {
         this.userName = userName;
         this.pass = pass;
         gitLabApi = getCredential(userName,pass);

@@ -1,24 +1,24 @@
 package tk.microlms.accessmanager.cli;
 
-import tk.microlms.accessmanager.model.GitLab;
-import tk.microlms.accessmanager.service.GitLabService;
-import tk.microlms.accessmanager.service.GoogleDriveService;
+import tk.microlms.accessmanager.model.GitlabUser;
+import tk.microlms.accessmanager.service.GitlabService;
+import tk.microlms.accessmanager.service.GoogledriveService;
 import tk.microlms.accessmanager.service.ReaderService;
 import tk.microlms.accessmanager.service.TrelloService;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class Runner {
+public class Main {
     public static void main(String[] args) throws Exception {
 
         int accessLevelGitLab = 30;
         TrelloService trelloService = new TrelloService(ReaderService.readTrelloConf().getKey(), ReaderService.readTrelloConf().getProjectId());
-        GoogleDriveService googleDriveService = new GoogleDriveService(ReaderService.readGoogleDriveConf().getFileId());
+        GoogledriveService googleDriveService = new GoogledriveService(ReaderService.readGoogleDriveConf().getFileId());
         Scanner scanner = new Scanner(System.in);
 
         System.out.println(
-                "Add to GitLab repositories,GoogleDrive directory,Trello board impute 'a'" +
+            "Add to GitlabUser repositories,GoogledriveUser directory,TrelloUser board impute 'a'" +
                         "\nGet status impute 's' "+
                         "\nQuit the program impute 'q'"+"\ndelete a member impute'd'");
 
@@ -28,25 +28,25 @@ public class Runner {
             if(result.equals("q")){break;}
 
             if (result.equals("a")) {
-                System.out.println("Write your email for Trello:");
+                System.out.println("Write your email for TrelloUser:");
                 String trelloEmail = scanner.next();
 
                 trelloService.addToTrello(trelloEmail);
 
-                System.out.println("Trello status:");
+                System.out.println("TrelloUser status:");
                 trelloService.getStatus();
 
                 System.out.println("Write your email for gitlab");
                 String email = scanner.next();
 
-                List<GitLab> gitLabs = ReaderService.readGitLabConf();
-                for (int i = 0;i < gitLabs.size();i++){
+                List<GitlabUser> gitlabUsers = ReaderService.readGitLabConf();
+                for (int i = 0; i < gitlabUsers.size(); i++) {
 
-                    String tempUserName = ReaderService.readGitLabConf().get(i).getUserName();
+                    String tempUserName = ReaderService.readGitLabConf().get(i).getUsername();
                     String tempPass = ReaderService.readGitLabConf().get(i).getPass();
                     String tempProjectId = ReaderService.readGitLabConf().get(i).getProjectId();
 
-                    GitLabService gitLabService = new GitLabService(tempUserName,tempPass);
+                    GitlabService gitLabService = new GitlabService(tempUserName, tempPass);
                     gitLabService.addToGitLab(Integer.valueOf(tempProjectId),email,accessLevelGitLab);
 
                     System.out.println("\nProjectId:" + tempProjectId);
@@ -59,13 +59,13 @@ public class Runner {
 
                 googleDriveService.addToGoogleDrive(googleEmail);
 
-                System.out.println("\nGoogleDrive status:");
+                System.out.println("\nGoogledriveUser status:");
                 googleDriveService.getStatus();
             }
             if(result.equals("d")){
-                    System.out.println("delete from Trello impute 'dtrell' " +
-                            "\ndelete from GoogleDrive impute 'dgoogl' " +
-                            "\ndelete from GitLab inpute 'dGit'");
+                System.out.println("delete from TrelloUser impute 'dtrell' " +
+                    "\ndelete from GoogledriveUser impute 'dgoogl' " +
+                    "\ndelete from GitlabUser inpute 'dGit'");
             }
 
             if(result.equals("dtrell")){
@@ -85,14 +85,14 @@ public class Runner {
                 System.out.println("Write email:");
                 String email = scanner.next();
 
-                List<GitLab> gitLabs = ReaderService.readGitLabConf();
-                for (int i = 0;i < gitLabs.size();i++){
+                List<GitlabUser> gitlabUsers = ReaderService.readGitLabConf();
+                for (int i = 0; i < gitlabUsers.size(); i++) {
 
-                    String tempUserName = ReaderService.readGitLabConf().get(i).getUserName();
+                    String tempUserName = ReaderService.readGitLabConf().get(i).getUsername();
                     String tempPass = ReaderService.readGitLabConf().get(i).getPass();
                     String tempProjectId = ReaderService.readGitLabConf().get(i).getProjectId();
 
-                    GitLabService gitLabService = new GitLabService(tempUserName,tempPass);
+                    GitlabService gitLabService = new GitlabService(tempUserName, tempPass);
                     gitLabService.delete(Integer.valueOf(tempProjectId),email);
 
                     System.out.println("\nProjectId:" + tempProjectId);
@@ -102,22 +102,22 @@ public class Runner {
 
             if(result.equals("s")){
 
-                System.out.println("Trello status:");
+                System.out.println("TrelloUser status:");
                 trelloService.getStatus();
 
-                System.out.println("\nGoogleDrive status:");
+                System.out.println("\nGoogledriveUser status:");
                 googleDriveService.getStatus();
 
-                System.out.println("\nGitLab status:");
+                System.out.println("\nGitlabUser status:");
 
-                List<GitLab> gitLabs = ReaderService.readGitLabConf();
-                for (int i = 0;i < gitLabs.size();i++){
+                List<GitlabUser> gitlabUsers = ReaderService.readGitLabConf();
+                for (int i = 0; i < gitlabUsers.size(); i++) {
 
-                    String tempUserName = ReaderService.readGitLabConf().get(i).getUserName();
+                    String tempUserName = ReaderService.readGitLabConf().get(i).getUsername();
                     String tempPass = ReaderService.readGitLabConf().get(i).getPass();
                     String tempProjectId = ReaderService.readGitLabConf().get(i).getProjectId();
 
-                    GitLabService gitLabService = new GitLabService(tempUserName,tempPass);
+                    GitlabService gitLabService = new GitlabService(tempUserName, tempPass);
                     System.out.println("\nProjectId:" + tempProjectId);
                     gitLabService.getStatus(tempProjectId);
 

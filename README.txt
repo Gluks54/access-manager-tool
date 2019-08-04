@@ -5,9 +5,9 @@ Now maven must move there jar,scripts,and configuration files.Go to the folder a
 
 1. Trello settings:
 Look at configuration.json file. The important things is 'projectId' and 'key'.
-You can check 'key' there: https://trello.com/app-key,
+You can check 'key' there: https://trelloUser.com/app-key,
 'projectId'(or id of the Board) you can get by Get request:
-https://api.trello.com/1/members/{usrName}?key={your key}
+https://api.trelloUser.com/1/members/{usrName}?key={your key}
 
 2. GitLab settings:
 Again come back to configuration.json file...
