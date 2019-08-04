@@ -1,6 +1,5 @@
 package tk.microlms.accessmanager.service;
 
-import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,18 +13,26 @@ import java.util.List;
 
 
 public class ReaderService {
-    private static String directory = String.format("%s/.m2/repository/tk/microlms360/access-manager-tool/configuration.json",System.getProperty("user.home"));
+    private static String directory = String.format("%s/.m2/repository/tk/microlms360/access-manager-tool/configuration.json", System.getProperty("user.home"));
 
     public static TrelloUser readTrelloConf() {
         JSONParser parser = new JSONParser();
         TrelloUser trelloUser = null;
         try {
             Object obj = parser.parse(new FileReader(
-                    directory));
-            JSONObject jsonObject = (JSONObject) obj;
+                directory));
 
-            String tempString = jsonObject.get("trelloUser").toString();
-            trelloUser = new Gson().fromJson(tempString, TrelloUser.class);
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONObject tempUser = (JSONObject) jsonObject.get("trelloUser");
+
+            String projectId = tempUser.get("projectId").toString();
+            String key = tempUser.get("key").toString();
+
+            trelloUser = TrelloUser
+                .builder()
+                .projectId(projectId)
+                .key(key)
+                .build();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,44 +41,57 @@ public class ReaderService {
     }
 
     public static List<GitlabUser> readGitLabConf() {
-            JSONParser parser = new JSONParser();
+        JSONParser parser = new JSONParser();
         List<GitlabUser> gitlabUserList = new ArrayList<>();
 
-            try {
-                Object obj = parser.parse(new FileReader(
-                        directory));
+        try {
+            Object obj = parser.parse(new FileReader(
+                directory));
 
-                JSONObject jsonObject = (JSONObject) obj;
-                JSONArray jsonArray = (JSONArray) jsonObject.get("gitlab");
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray jsonArray = (JSONArray) jsonObject.get("gitlabUser");
 
-                int sizeOfArr = jsonArray.size();
+            int sizeOfArr = jsonArray.size();
 
-                for(int i = 0;i < sizeOfArr;i++){
-                    String tempString =  jsonArray.get(i).toString();
-                    GitlabUser gitlabUser = new Gson().fromJson(tempString, GitlabUser.class);
-                    gitlabUserList.add(gitlabUser);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            for (int i = 0; i < sizeOfArr; i++) {
+                JSONObject tempUser = (JSONObject) jsonArray.get(i);
+
+                String projectId = tempUser.get("projectId").toString();
+                String username = tempUser.get("username").toString();
+                String pass = tempUser.get("pass").toString();
+
+                GitlabUser gitlabUser = GitlabUser
+                    .builder()
+                    .projectId(projectId)
+                    .username(username)
+                    .pass(pass)
+                    .build();
+
+                gitlabUserList.add(gitlabUser);
             }
-        return gitlabUserList;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return gitlabUserList;
+    }
 
     public static GoogledriveUser readGoogleDriveConf() {
 
-            JSONParser parser = new JSONParser();
+        JSONParser parser = new JSONParser();
         GoogledriveUser googledriveUser = null;
-            try {
-                Object obj = parser.parse(new FileReader(
-                        directory));
-                JSONObject jsonObject = (JSONObject) obj;
+        try {
+            Object obj = parser.parse(new FileReader(
+                directory));
+            JSONObject jsonObject = (JSONObject) obj;
 
-                String tempString = jsonObject.get("googledriveUser").toString();
-                googledriveUser = new Gson().fromJson(tempString, GoogledriveUser.class);
+            JSONObject tempUser = (JSONObject) jsonObject.get("googledriveUser");
+            String fileId = tempUser.get("fileId").toString();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            googledriveUser = GoogledriveUser.builder().fileId(fileId).build();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return googledriveUser;
     }
 }
