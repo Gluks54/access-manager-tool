@@ -1,7 +1,7 @@
+This program allow you add,delete and get status of members GitLab projects, Trello board and GoogleDrive directory;
 
-This program allow you add members of team to GitLab projects, Trello board and share GoogleDrive directory;
-
-How to setting up project? You should just follow next instruction...
+0.Download project from GitLab and create directory ~/.m2/repository/tk/microlms360 and run 'maven package'.
+Now maven must move there jar,scripts,and configuration files.Go to the folder and set up your program;
 
 1. Trello settings:
 Look at configuration.json file. The important things is 'projectId' and 'key'.
@@ -20,7 +20,7 @@ https://developers.google.com/drive/api/v3/reference/files/list - just use that 
 (you don't should impute any param for request);
 
 But one important things is when you run program and try to add to google drive directory, program redirect you to google authentication page
-with warning (This app isn't verified) just choose Advanced -> Go to testname (unsafe) and allow everything--- finally it must work.
+with warning (This app isn't verified) just choose Advanced -> Go to testname (unsafe) and allow everything--- finally it must work;
 
 
 
