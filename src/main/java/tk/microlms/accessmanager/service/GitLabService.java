@@ -1,8 +1,9 @@
-package com.accessmanagertool.service;
+package tk.microlms.accessmanager.service;
 
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
 import org.gitlab4j.api.models.ProjectUser;
+
 import java.util.List;
 
 public class GitLabService {

@@ -1,10 +1,11 @@
-package com.accessmanagertool.cli_program;
+package tk.microlms.accessmanager.cli;
 
-import com.accessmanagertool.service.GoogleDriveService;
-import com.accessmanagertool.service.GitLabService;
-import com.accessmanagertool.service.ReaderService;
-import com.accessmanagertool.service.TrelloService;
-import com.accessmanagertool.model.GitLab;
+import tk.microlms.accessmanager.model.GitLab;
+import tk.microlms.accessmanager.service.GitLabService;
+import tk.microlms.accessmanager.service.GoogleDriveService;
+import tk.microlms.accessmanager.service.ReaderService;
+import tk.microlms.accessmanager.service.TrelloService;
+
 import java.util.List;
 import java.util.Scanner;
 

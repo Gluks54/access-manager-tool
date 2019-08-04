@@ -1,16 +1,16 @@
-package com.accessmanagertool.service;
+package tk.microlms.accessmanager.service;
 
-import com.accessmanagertool.model.GitLab;
-import com.accessmanagertool.model.GoogleDrive;
-import com.accessmanagertool.model.Trello;
-
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
 import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import tk.microlms.accessmanager.model.GitLab;
+import tk.microlms.accessmanager.model.GoogleDrive;
+import tk.microlms.accessmanager.model.Trello;
+
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ReaderService {

@@ -1,4 +1,4 @@
-package com.accessmanagertool.model;
+package tk.microlms.accessmanager.model;
 
 public class Trello {
     public String getProjectId() {
