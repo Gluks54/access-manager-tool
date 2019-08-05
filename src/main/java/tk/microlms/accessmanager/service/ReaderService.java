@@ -13,14 +13,14 @@ import java.util.List;
 
 
 public class ReaderService {
-    private static String directory = String.format("%s/.m2/repository/tk/microlms360/access-manager-tool/configuration.json", System.getProperty("user.home"));
+    private static String path = "configuration.json";
 
     public static TrelloUser readTrelloConf() {
         JSONParser parser = new JSONParser();
         TrelloUser trelloUser = null;
         try {
             Object obj = parser.parse(new FileReader(
-                directory));
+                path));
 
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject tempUser = (JSONObject) jsonObject.get("trelloUser");
@@ -46,7 +46,7 @@ public class ReaderService {
 
         try {
             Object obj = parser.parse(new FileReader(
-                directory));
+                path));
 
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray jsonArray = (JSONArray) jsonObject.get("gitlabUser");
@@ -81,7 +81,7 @@ public class ReaderService {
         GoogledriveUser googledriveUser = null;
         try {
             Object obj = parser.parse(new FileReader(
-                directory));
+                path));
             JSONObject jsonObject = (JSONObject) obj;
 
             JSONObject tempUser = (JSONObject) jsonObject.get("googledriveUser");

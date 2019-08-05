@@ -19,10 +19,7 @@ import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.Permission;
 import com.google.api.services.drive.model.PermissionList;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class GoogledriveService {
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
     private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE);
-    private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
+    private static final String CREDENTIALS_FILE_PATH = "configuration.json";
     private String fileId;
 
     public GoogledriveService(String fileId) {
@@ -41,7 +38,8 @@ public class GoogledriveService {
 
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws Exception {
         // Load client secrets.
-        InputStream in = GoogledriveService.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
+        InputStream in = new FileInputStream(new File(CREDENTIALS_FILE_PATH));
+
         if (in == null) {
             throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
         }
