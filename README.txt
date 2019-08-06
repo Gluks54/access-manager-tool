@@ -1,7 +1,8 @@
 This program allow you add,delete and get status of members GitLab projects, Trello board and GoogleDrive directory;
 
-0.Download project from GitLab and create directory ~/.m2/repository/tk/microlms360 and run 'maven package'.
-Now maven must move there jar,scripts,and configuration files.Go to the folder and set up your program;
+0.Download project from GitLab and run 'maven package'.
+Maven move there jar,scripts,and configuration files to 'dist' folder in your root of project.
+Go to the folder and run script;
 
 1. Trello settings:
 Look at configuration.json file. The important things is 'projectId' and 'key'.

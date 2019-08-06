@@ -3,6 +3,7 @@ package tk.microlms.accessmanager.service;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import tk.microlms.accessmanager.model.FilePath;
 import tk.microlms.accessmanager.model.GitlabUser;
 import tk.microlms.accessmanager.model.GoogledriveUser;
 import tk.microlms.accessmanager.model.TrelloUser;
@@ -13,14 +14,12 @@ import java.util.List;
 
 
 public class ReaderService {
-    private static String path = "configuration.json";
-
     public static TrelloUser readTrelloConf() {
         JSONParser parser = new JSONParser();
         TrelloUser trelloUser = null;
         try {
             Object obj = parser.parse(new FileReader(
-                path));
+                FilePath.CONF.getPath()));
 
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject tempUser = (JSONObject) jsonObject.get("trelloUser");
@@ -46,7 +45,7 @@ public class ReaderService {
 
         try {
             Object obj = parser.parse(new FileReader(
-                path));
+                FilePath.CONF.getPath()));
 
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray jsonArray = (JSONArray) jsonObject.get("gitlabUser");
@@ -81,7 +80,7 @@ public class ReaderService {
         GoogledriveUser googledriveUser = null;
         try {
             Object obj = parser.parse(new FileReader(
-                path));
+                FilePath.CONF.getPath()));
             JSONObject jsonObject = (JSONObject) obj;
 
             JSONObject tempUser = (JSONObject) jsonObject.get("googledriveUser");
