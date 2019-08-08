@@ -18,7 +18,6 @@ import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.Permission;
 import com.google.api.services.drive.model.PermissionList;
-import tk.microlms.accessmanager.model.FilePath;
 
 import java.io.*;
 import java.util.Collections;
@@ -38,15 +37,13 @@ public class GoogledriveService {
     }
 
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws Exception {
-        // Load client secrets.
-        InputStream in = new FileInputStream(new File(FilePath.CONF.getPath()));
+        InputStream in = new FileInputStream(new File(FilePathService.CONF));
 
         if (in == null) {
-            throw new FileNotFoundException("Resource not found: " + FilePath.CONF.getPath());
+            throw new FileNotFoundException("Resource not found: " + FilePathService.CONF);
         }
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
-        // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
             HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
             .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
@@ -74,7 +71,6 @@ public class GoogledriveService {
     };
 
     public void addToGoogleDrive(String email) throws Exception {
-
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
             .setApplicationName(APPLICATION_NAME)
@@ -89,7 +85,6 @@ public class GoogledriveService {
             .setFields("id")
             .queue(batch, callback);
         batch.execute();
-
     }
 
     public void getStatus() throws Exception {
@@ -108,15 +103,11 @@ public class GoogledriveService {
         for (Permission i : tempPermList) {
             System.out.println("username: " + i.getDisplayName() + " email: " +
                 i.getEmailAddress() + " status: " + i.getRole() + " Id: " + i.getId());
-
         }
-
-        System.out.println();
     }
 
 
     public void delete(String userId) throws Exception {
-
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
             .setApplicationName(APPLICATION_NAME)

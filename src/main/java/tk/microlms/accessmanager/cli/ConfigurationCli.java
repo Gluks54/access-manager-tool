@@ -6,15 +6,11 @@ import tk.microlms.accessmanager.model.GoogledriveUser;
 import tk.microlms.accessmanager.model.TrelloUser;
 import tk.microlms.accessmanager.service.ConfigurationService;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ConfigurationCli {
-
     public void UserConfigurations() {
         Scanner scanner = new Scanner(System.in);
         ConfigurationService configurationService = new ConfigurationService();
@@ -114,10 +110,6 @@ public class ConfigurationCli {
             .build();
 
         configurationService.setGoogleDriveClient(googleDriveClient);
-    }
-
-    public void copyFile(File source, File dest) throws IOException {
-        Files.copy(source.toPath(), dest.toPath());
     }
 }
 

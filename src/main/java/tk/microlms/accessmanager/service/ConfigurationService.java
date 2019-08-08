@@ -18,11 +18,11 @@ public class ConfigurationService {
         newFileId.put("fileId", user.getFileId());
         try {
             Object obj = parser.parse(new FileReader(
-                FilePath.CONF.getPath()));
+                FilePathService.CONF));
             JSONObject jsonObject = (JSONObject) obj;
             jsonObject.replace("googledriveUser", newFileId);
 
-            FileWriter file = new FileWriter(FilePath.CONF.getPath());
+            FileWriter file = new FileWriter(FilePathService.CONF);
             file.write(jsonObject.toJSONString());
             file.flush();
 
@@ -40,11 +40,11 @@ public class ConfigurationService {
 
         try {
             Object obj = parser.parse(new FileReader(
-                FilePath.CONF.getPath()));
+                FilePathService.CONF));
             JSONObject jsonObject = (JSONObject) obj;
             jsonObject.replace("trelloUser", newUser);
 
-            FileWriter file = new FileWriter(FilePath.CONF.getPath());
+            FileWriter file = new FileWriter(FilePathService.CONF);
             file.write(jsonObject.toJSONString());
             file.flush();
 
@@ -66,11 +66,11 @@ public class ConfigurationService {
 
         try {
             Object obj = parser.parse(new FileReader(
-                FilePath.CONF.getPath()));
+                FilePathService.CONF));
             JSONObject jsonObject = (JSONObject) obj;
             jsonObject.replace("web", newClient);
 
-            FileWriter file = new FileWriter(FilePath.CONF.getPath());
+            FileWriter file = new FileWriter(FilePathService.CONF);
             file.write(jsonObject.toJSONString());
             file.flush();
 
@@ -94,12 +94,12 @@ public class ConfigurationService {
         }
         try {
             Object obj = parser.parse(new FileReader(
-                FilePath.CONF.getPath()));
+                FilePathService.CONF));
             JSONObject jsonObject = (JSONObject) obj;
 
             jsonObject.replace("gitlabUser", newArrayOfUser);
 
-            FileWriter file = new FileWriter(FilePath.CONF.getPath());
+            FileWriter file = new FileWriter(FilePathService.CONF);
             file.write(jsonObject.toJSONString());
             file.flush();
 

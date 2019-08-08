@@ -3,7 +3,6 @@ package tk.microlms.accessmanager.service;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import tk.microlms.accessmanager.model.FilePath;
 import tk.microlms.accessmanager.model.GitlabUser;
 import tk.microlms.accessmanager.model.GoogledriveUser;
 import tk.microlms.accessmanager.model.TrelloUser;
@@ -19,7 +18,7 @@ public class ReaderService {
         TrelloUser trelloUser = null;
         try {
             Object obj = parser.parse(new FileReader(
-                FilePath.CONF.getPath()));
+                FilePathService.CONF));
 
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject tempUser = (JSONObject) jsonObject.get("trelloUser");
@@ -45,14 +44,12 @@ public class ReaderService {
 
         try {
             Object obj = parser.parse(new FileReader(
-                FilePath.CONF.getPath()));
+                FilePathService.CONF));
 
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray jsonArray = (JSONArray) jsonObject.get("gitlabUser");
 
-            int sizeOfArr = jsonArray.size();
-
-            for (int i = 0; i < sizeOfArr; i++) {
+            for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject tempUser = (JSONObject) jsonArray.get(i);
 
                 String projectId = tempUser.get("projectId").toString();
@@ -80,7 +77,7 @@ public class ReaderService {
         GoogledriveUser googledriveUser = null;
         try {
             Object obj = parser.parse(new FileReader(
-                FilePath.CONF.getPath()));
+                FilePathService.CONF));
             JSONObject jsonObject = (JSONObject) obj;
 
             JSONObject tempUser = (JSONObject) jsonObject.get("googledriveUser");

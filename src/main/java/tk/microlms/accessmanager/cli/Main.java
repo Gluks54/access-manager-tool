@@ -1,12 +1,8 @@
 package tk.microlms.accessmanager.cli;
 
-import tk.microlms.accessmanager.model.FilePath;
 import tk.microlms.accessmanager.model.GitlabRolePermission;
 import tk.microlms.accessmanager.model.GitlabUser;
-import tk.microlms.accessmanager.service.GitlabService;
-import tk.microlms.accessmanager.service.GoogledriveService;
-import tk.microlms.accessmanager.service.ReaderService;
-import tk.microlms.accessmanager.service.TrelloService;
+import tk.microlms.accessmanager.service.*;
 
 import java.io.File;
 import java.util.List;
@@ -14,25 +10,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        File file = new File(FilePath.CONF.getPath());
-        if (file.exists() && file.isFile()) {
+        File file = new File(FilePathService.CONF);
+        if (!file.exists()) {
         } else {
             Scanner scanner = new Scanner(System.in);
-
-            ConfigurationCli configurationCli = new ConfigurationCli();
-            configurationCli.copyFile(new File(FilePath.DEFAULT_CONF.getPath()),
-                new File(FilePath.CONF.getPath()));
-
-            System.out.println("File configuration.json doesn't exist...\nUse default settings(y/n)?");
+            String firstMassage = String.format("configuration.json is found in home directory (%s)," +
+                "\nwould you like to create a new configuration? y/n..,",FilePathService.HOME);
+            System.out.println(firstMassage);
 
             String rezult = scanner.next();
             while (true) {
                 if (rezult.equals("y")) {
-                    break;
+                   ConfigurationCli configurationCli = new ConfigurationCli();
+                   configurationCli.UserConfigurations();
+                   configurationCli.ClientCredentialsConfig();
                 }
                 if (rezult.equals("n")) {
-                    configurationCli.UserConfigurations();
-                    configurationCli.ClientCredentialsConfig();
                     break;
                 }
             }
