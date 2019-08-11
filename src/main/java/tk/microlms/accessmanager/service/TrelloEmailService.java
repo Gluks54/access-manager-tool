@@ -41,7 +41,6 @@ public class TrelloEmailService {
         List<TrelloUser> tempList = new ArrayList<>();
         tempList.add(trelloUser);
         objectMapper.writeValue(file, tempList);
-
     }
 
     public void removeByUser(TrelloUser trelloUser) throws IOException {

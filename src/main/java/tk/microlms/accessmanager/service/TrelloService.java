@@ -59,7 +59,8 @@ public class TrelloService {
         compareTwoList(usersFormDoc, userNames, email);
     }
 
-    private void compareTwoList(List<TrelloUser> usersFormDoc, List<String> userNames, String email) throws IOException {
+    private void compareTwoList(List<TrelloUser> usersFormDoc,
+                                List<String> userNames, String email) throws IOException {
         String rezult = null;
         for (int i = 0; i < usersFormDoc.size(); i++) {
             for (int y = 0; y < userNames.size(); y++) {
@@ -80,7 +81,9 @@ public class TrelloService {
 
     public void getStatus() throws UnirestException, IOException {
         String url =
-            String.format("https://trello.com/1/boards/%s/memberships/?orgMemberType=true&member=true&member_fields=all&key=%s&token=%s", projectId, key, token);
+            String.format(
+                "https://trello.com/1/boards/%s/memberships/" +
+                    "?orgMemberType=true&member=true&member_fields=all&key=%s&token=%s", projectId, key, token);
         //disable sending cookies
         Unirest.setHttpClient(httpClient);
 
@@ -117,7 +120,7 @@ public class TrelloService {
         trelloEmailService.removeByUser(trelloUser);
     }
 
-    public TrelloUser getMyData() throws UnirestException, IOException {
+    public TrelloUser getMyData() throws UnirestException {
         String url =
             String.format("https://api.trello.com/1/members/me?token=%s&key=%s", token, key);
         //disable sending cookies

@@ -24,7 +24,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class GoogledriveService {
-
     private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
@@ -60,28 +59,30 @@ public class GoogledriveService {
     JsonBatchCallback<Permission> callback = new JsonBatchCallback<Permission>() {
         @Override
         public void onFailure(GoogleJsonError e,
-                              HttpHeaders responseHeaders)
-            throws IOException {
+                              HttpHeaders responseHeaders) {
             System.err.println(e.getMessage());
         }
 
         @Override
         public void onSuccess(Permission permission,
-                              HttpHeaders responseHeaders)
-            throws IOException {
+                              HttpHeaders responseHeaders) {
             System.out.println("add to GoogleDrive");
         }
     };
 
     public void addToGoogleDrive(String email) throws Exception {
         BatchRequest batch = drive.batch();
+
         Permission userPermission = new Permission()
             .setType("user")
             .setRole("writer")
             .setEmailAddress(email);
-        drive.permissions().create(fileId, userPermission)
+
+        drive.permissions()
+            .create(fileId, userPermission)
             .setFields("id")
             .queue(batch, callback);
+
         batch.execute();
     }
 

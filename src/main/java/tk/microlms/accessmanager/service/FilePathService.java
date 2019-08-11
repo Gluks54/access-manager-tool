@@ -16,7 +16,7 @@ public class FilePathService {
     public final static String TRELLO_EMAIL = "email-to-username.json";
     private final String homeFilePath = USER_HOME + "/configuration.json";
     private File userDirFile = new File(USER_CONF);
-    private File userHomeFile = new File(USER_HOME + "/configuration.json");
+    private File userHomeFile = new File(USER_HOME + "/Conf/configuration.json");
     private File trelloEmail = new File(TRELLO_EMAIL);
 
     public boolean checkConfFile() throws IOException {

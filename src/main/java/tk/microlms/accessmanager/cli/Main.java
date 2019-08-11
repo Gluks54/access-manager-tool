@@ -20,6 +20,7 @@ public class Main {
             System.out.println(errorMassage);
 
             String result = scanner.next();
+            result = result.toLowerCase();
             if (result.equals("y")) {
                 ConfigurationCli configurationCli = new ConfigurationCli();
                 configurationCli.newConfigurations();
@@ -45,6 +46,8 @@ public class Main {
 
         while (true) {
             String result = scanner.next();
+            result = result.toLowerCase();
+
             if (result.equals("q")) {
                 break;
             }
@@ -52,6 +55,7 @@ public class Main {
             if (result.equals("a")) {
                 System.out.println("impute email:");
                 String email = scanner.next();
+                email = email.toLowerCase();
 
                 trelloService.addToTrello(email);
                 googleDriveService.addToGoogleDrive(email);
@@ -72,6 +76,7 @@ public class Main {
             if (result.equals("d")) {
                 System.out.println("impute email:");
                 String email = scanner.next();
+                email = email.toLowerCase();
 
                 trelloService.deleteMember(email);
                 System.out.println("delete from trello");
