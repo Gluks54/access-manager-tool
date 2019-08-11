@@ -1,94 +1,43 @@
 package tk.microlms.accessmanager.service;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import tk.microlms.accessmanager.model.GitlabUser;
 import tk.microlms.accessmanager.model.GoogledriveUser;
 import tk.microlms.accessmanager.model.TrelloUser;
 
-import java.io.FileReader;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ReaderService {
-    public static TrelloUser readTrelloConf() {
-        JSONParser parser = new JSONParser();
-        TrelloUser trelloUser = null;
-        try {
-            Object obj = parser.parse(new FileReader(
-                FilePathService.CONF));
+    final static ObjectMapper objectMapper = new ObjectMapper()
+        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+    final static File file = new File(FilePathService.USER_CONF);
 
-            JSONObject jsonObject = (JSONObject) obj;
-            JSONObject tempUser = (JSONObject) jsonObject.get("trelloUser");
-
-            String projectId = tempUser.get("projectId").toString();
-            String key = tempUser.get("key").toString();
-
-            trelloUser = TrelloUser
-                .builder()
-                .projectId(projectId)
-                .key(key)
-                .build();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return trelloUser;
+    public static TrelloUser readTrelloConf() throws IOException {
+        JsonNode jsonNode = objectMapper.readTree(file).get("trelloUser");
+        return objectMapper.treeToValue(jsonNode, TrelloUser.class);
     }
 
-    public static List<GitlabUser> readGitLabConf() {
-        JSONParser parser = new JSONParser();
-        List<GitlabUser> gitlabUserList = new ArrayList<>();
+    public static List<GitlabUser> readGitLabConf() throws IOException {
+        JsonNode jsonNode = objectMapper.readTree(file);
+        JsonNode jsonArr = jsonNode.get("gitlabUser");
+        List<GitlabUser> gitlabUsers = new ArrayList<>();
 
-        try {
-            Object obj = parser.parse(new FileReader(
-                FilePathService.CONF));
-
-            JSONObject jsonObject = (JSONObject) obj;
-            JSONArray jsonArray = (JSONArray) jsonObject.get("gitlabUser");
-
-            for (int i = 0; i < jsonArray.size(); i++) {
-                JSONObject tempUser = (JSONObject) jsonArray.get(i);
-
-                String projectId = tempUser.get("projectId").toString();
-                String username = tempUser.get("username").toString();
-                String pass = tempUser.get("pass").toString();
-
-                GitlabUser gitlabUser = GitlabUser
-                    .builder()
-                    .projectId(projectId)
-                    .username(username)
-                    .pass(pass)
-                    .build();
-
-                gitlabUserList.add(gitlabUser);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int i = 0; i < jsonArr.size(); i++) {
+            GitlabUser tempUser = objectMapper.treeToValue(jsonArr.get(i), GitlabUser.class);
+            gitlabUsers.add(tempUser);
         }
-        return gitlabUserList;
+        return gitlabUsers;
     }
 
-    public static GoogledriveUser readGoogleDriveConf() {
-
-        JSONParser parser = new JSONParser();
-        GoogledriveUser googledriveUser = null;
-        try {
-            Object obj = parser.parse(new FileReader(
-                FilePathService.CONF));
-            JSONObject jsonObject = (JSONObject) obj;
-
-            JSONObject tempUser = (JSONObject) jsonObject.get("googledriveUser");
-            String fileId = tempUser.get("fileId").toString();
-
-            googledriveUser = GoogledriveUser.builder().fileId(fileId).build();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return googledriveUser;
+    public static GoogledriveUser readGoogleDriveConf() throws IOException {
+        JsonNode jsonNode = objectMapper.readTree(file).get("googledriveUser");
+        return objectMapper.treeToValue(jsonNode, GoogledriveUser.class);
     }
 }
 

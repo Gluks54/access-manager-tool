@@ -11,5 +11,4 @@ public enum GitlabRolePermission {
     GitlabRolePermission(int level) {
         this.level = level;
     }
-
 }

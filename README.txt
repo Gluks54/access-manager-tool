@@ -5,8 +5,8 @@ Maven move there jar,scripts,and configuration files to 'dist' folder in your ro
 Go to the folder and run script;
 
 1. Trello settings:
-Look at configuration.json file. The important things is 'projectId' and 'key'.
-You can check 'key' there: https://trelloUser.com/app-key,
+Look at configuration.json file. The important things is 'projectId','key' and 'token'.
+You can check 'key' and 'token' there: https://trelloUser.com/app-key,
 'projectId'(or id of the Board) you can get by Get request:
 https://api.trelloUser.com/1/members/{usrName}?key={your key}
 

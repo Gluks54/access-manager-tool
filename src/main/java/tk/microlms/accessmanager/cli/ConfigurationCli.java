@@ -6,16 +6,17 @@ import tk.microlms.accessmanager.model.GoogledriveUser;
 import tk.microlms.accessmanager.model.TrelloUser;
 import tk.microlms.accessmanager.service.ConfigurationService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ConfigurationCli {
-    public void UserConfigurations() {
+    public void newConfigurations() throws IOException {
         Scanner scanner = new Scanner(System.in);
         ConfigurationService configurationService = new ConfigurationService();
 
-        System.out.println("Trello settings... \nYou can check 'key' there: https://trelloUser.com/app-key,\n" +
+        System.out.println("Trello settings... \nYou can check 'key' and 'token' there: https://trelloUser.com/app-key,\n" +
             "'projectId'(or id of the Board) you can get by Get request:\n" +
             "https://api.trelloUser.com/1/members/{usrName}?key={your key}\n\nimpute 'key':");
 
@@ -23,13 +24,15 @@ public class ConfigurationCli {
         System.out.println("impute 'projectId':");
         String projectId = scanner.next();
 
+        System.out.println("impute 'token':");
+        String token = scanner.next();
+
         TrelloUser trelloUser = TrelloUser
             .builder()
             .key(key)
             .projectId(projectId)
+            .token(token)
             .build();
-
-        configurationService.setTrello(trelloUser);
 
         System.out.println("\n\nGoogleDrive settings.... \nfileId - that is Id of the folder which should be share\n" +
             "https://developers.google.com/drive/api/v3/reference/files/list - for getting list of id your files");
@@ -42,14 +45,12 @@ public class ConfigurationCli {
             .fileId(fileId)
             .build();
 
-        configurationService.setGoogleDrive(googledriveUser);
-
         System.out.println("\nGitLab settings..." +
             "\nprojectId,userName,pass(your password) - all of that you can find in your GitLab page;" +
             "\n\nimpute number of project which you want to share:");
 
         int numberOfProjects = scanner.nextInt();
-        List<GitlabUser> userList = new ArrayList<>();
+        List<GitlabUser> gitlabUsers = new ArrayList<>();
 
         for (int i = 0; i < numberOfProjects; i++) {
 
@@ -69,14 +70,8 @@ public class ConfigurationCli {
                 .pass(pass)
                 .build();
 
-            userList.add(gitlabUser);
+            gitlabUsers.add(gitlabUser);
         }
-        configurationService.setGitLab(userList);
-    }
-
-    public void ClientCredentialsConfig() {
-        Scanner scanner = new Scanner(System.in);
-        ConfigurationService configurationService = new ConfigurationService();
 
         System.out.println("\nYou can download all credentials for your GoogleDrive client there:\nhttps://console.developers.google.com/apis/api/drive/overview" +
             "\nBut first of all you should create own client.More information you can find there:https://developers.google.com/drive" +
@@ -109,7 +104,11 @@ public class ConfigurationCli {
             .auth_provider_x509_cert_url(auth_provider_x509_cert_url)
             .build();
 
-        configurationService.setGoogleDriveClient(googleDriveClient);
+        configurationService
+            .newConf(trelloUser,
+                gitlabUsers,
+                googledriveUser,
+                googleDriveClient);
     }
 }
 

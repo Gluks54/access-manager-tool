@@ -7,16 +7,15 @@ import org.gitlab4j.api.models.ProjectUser;
 import java.util.List;
 
 public class GitlabService {
+    private String userName;
+    private String pass;
+    private GitLabApi gitLabApi;
 
     public GitlabService(String userName, String pass) throws GitLabApiException {
         this.userName = userName;
         this.pass = pass;
         gitLabApi = getCredential(userName, pass);
     }
-
-    private String userName;
-    private String pass;
-    private GitLabApi gitLabApi = null;
 
     public GitLabApi getCredential(String userName, String pass) throws GitLabApiException {
         return GitLabApi.oauth2Login("https://gitlab.com", userName, pass);
@@ -33,7 +32,8 @@ public class GitlabService {
 
         for (ProjectUser i : projectPager) {
             System.out.println("name: " + i.getName()
-                + " username: " + i.getUsername() + " id: " + i.getId() + " email: " + i.getEmail());
+                + " username: " + i.getUsername() + " id: " + i.getId()
+                + " email: " + i.getEmail());
         }
     }
 

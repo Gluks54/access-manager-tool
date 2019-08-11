@@ -30,17 +30,21 @@ public class GoogledriveService {
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
     private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE);
     private static final int CALLBACK_PORT = 8888;
+    final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
     private String fileId;
+    private Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
+        .setApplicationName(APPLICATION_NAME)
+        .build();
 
-    public GoogledriveService(String fileId) {
+    public GoogledriveService(String fileId) throws Exception {
         this.fileId = fileId;
     }
 
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws Exception {
-        InputStream in = new FileInputStream(new File(FilePathService.CONF));
+        InputStream in = new FileInputStream(new File(FilePathService.USER_CONF));
 
         if (in == null) {
-            throw new FileNotFoundException("Resource not found: " + FilePathService.CONF);
+            throw new FileNotFoundException("Resource not found: " + FilePathService.USER_CONF);
         }
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -58,7 +62,6 @@ public class GoogledriveService {
         public void onFailure(GoogleJsonError e,
                               HttpHeaders responseHeaders)
             throws IOException {
-            // Handle error
             System.err.println(e.getMessage());
         }
 
@@ -66,16 +69,11 @@ public class GoogledriveService {
         public void onSuccess(Permission permission,
                               HttpHeaders responseHeaders)
             throws IOException {
-            System.out.println("Permission ID: " + permission.toPrettyString());
+            System.out.println("add to GoogleDrive");
         }
     };
 
     public void addToGoogleDrive(String email) throws Exception {
-        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
-            .setApplicationName(APPLICATION_NAME)
-            .build();
-
         BatchRequest batch = drive.batch();
         Permission userPermission = new Permission()
             .setType("user")
@@ -88,11 +86,6 @@ public class GoogledriveService {
     }
 
     public void getStatus() throws Exception {
-        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
-            .setApplicationName(APPLICATION_NAME)
-            .build();
-
         PermissionList listPerm = drive
             .permissions()
             .list(fileId).setFields("permissions(displayName,emailAddress,id,role)")
@@ -106,14 +99,25 @@ public class GoogledriveService {
         }
     }
 
-
-    public void delete(String userId) throws Exception {
-        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
-            .setApplicationName(APPLICATION_NAME)
-            .build();
-
+    public void delete(String email) throws Exception {
+        String userId = getIdByEmail(email);
         drive.permissions().delete(fileId, userId).execute();
+    }
+
+    public String getIdByEmail(String email) throws IOException {
+        PermissionList listPerm = drive
+            .permissions()
+            .list(fileId).setFields("permissions(emailAddress,id)")
+            .execute();
+
+        List<Permission> tempPermList = listPerm.getPermissions();
+
+        for (Permission i : tempPermList) {
+            if (i.getEmailAddress().equals(email)) {
+                return i.getId();
+            }
+        }
+        return null;
     }
 }
 

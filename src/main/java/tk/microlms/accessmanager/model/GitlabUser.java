@@ -1,12 +1,12 @@
 package tk.microlms.accessmanager.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 @Data
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class GitlabUser {
     private String projectId;
     private String username;
