@@ -15,17 +15,22 @@ public class Main {
         FilePathService filePathService = new FilePathService();
 
         if (!filePathService.checkConfFile()) {
-            String errorMassage = String.format("configuration.json is found neither in the current directory (%s)" +
-                "\nnor in home dir (%s), would you like to create a new configuration y/n?", FilePathService.USER_CONF, FilePathService.USER_HOME);
+            String errorMassage = String.format("File 'configuration.json' is found neither in the current directory (%s)" +
+                "\nnor in home dir (%s), would you like to create a new configuration y/n?", FilePathService.USER_DIR, FilePathService.USER_HOME);
             System.out.println(errorMassage);
 
-            String result = scanner.next();
-            result = result.toLowerCase();
-            if (result.equals("y")) {
-                ConfigurationCli configurationCli = new ConfigurationCli();
-                configurationCli.newConfigurations();
-            } else {
-                System.exit(EXIT_STATUS);
+            while (true) {
+                String result = scanner.next();
+                result = result.toLowerCase();
+
+                if (result.equals("y")) {
+                    ConfigurationCli configurationCli = new ConfigurationCli();
+                    configurationCli.newConfigurations();
+                    break;
+                }
+                if (result.equals("n")) {
+                    System.exit(EXIT_STATUS);
+                }
             }
         }
 
@@ -121,6 +126,7 @@ public class Main {
         }
     }
 }
+
 
 
 

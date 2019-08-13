@@ -14,6 +14,7 @@ public class FilePathService {
     public final static String USER_HOME = System.getProperty("user.home");
     public final static String USER_CONF = "configuration.json";
     public final static String TRELLO_EMAIL = "email-to-username.json";
+    public final static String USER_DIR = System.getProperty("user.dir");
     private final String homeFilePath = USER_HOME + "/configuration.json";
     private File userDirFile = new File(USER_CONF);
     private File userHomeFile = new File(USER_HOME + "/Conf/configuration.json");

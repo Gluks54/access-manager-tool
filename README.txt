@@ -5,20 +5,27 @@ Maven move there jar,scripts,and configuration files to 'dist' folder in your ro
 Go to the folder and run script;
 
 1. Trello settings:
-Look at configuration.json file. The important things is 'projectId','key' and 'token'.
-You can check 'key' and 'token' there: https://trelloUser.com/app-key,
-'projectId'(or id of the Board) you can get by Get request:
-https://api.trelloUser.com/1/members/{usrName}?key={your key}
+'projectId','key' and 'token' - you can get by next steps:
+You should visit next page 'https://developers.trello.com/page/authorization' and press
+on the link 'https://trelloUser.com/app-key' copy 'key' after that press again on the link 'Token'
+and copy your token...
+'projectId'(or id of the Board) you can get by 'Get' request:
+'https://api.trelloUser.com/1/members/{usrName}?key={your key}&token={your token}'
 
 2. GitLab settings:
-Again come back to configuration.json file...
-projectId,userName,pass(your password) - all of that you can find in your GitLab page;
-If you want add more just add to gitlab array same fields and program handle it;
+'projectId'(your projectId),'userName'(your userName),'pass'(your password) - all of that you can find in your GitLab page;
+If you want share more repositories just impute number of repositories, and write data respectively;
 
 3. GoogleDrive settings:
-fileId - that is Id of the folder which should be share
-https://developers.google.com/drive/api/v3/reference/files/list - just use that page for getting list of id your files
+fileId - that is Id of the folder which should be share.
+'https://developers.google.com/drive/api/v3/reference/files/list' - just use that page for getting list of 'id' your files
 (you don't should impute any param for request);
+
+4.GoogleDrive client settings:
+You can download all credentials for your GoogleDrive client there:
+'https://console.developers.google.com/apis/api/drive/overview'
+But first of all you should create your own client.More information you can find there:'https://developers.google.com/drive'
+Attention!!!! Your 'Authorised redirect URIs' must be 'http://localhost:8888/Callback';
 
 But one important things is when you run program and try to add to google drive directory, program redirect you to google authentication page
 with warning (This app isn't verified) just choose Advanced -> Go to testname (unsafe) and allow everything--- finally it must work;
