@@ -2,7 +2,8 @@ package tk.microlms.accessmanager.service;
 
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
-import org.gitlab4j.api.models.ProjectUser;
+import org.gitlab4j.api.models.Member;
+import tk.microlms.accessmanager.model.GitlabRolePermission;
 
 import java.util.List;
 
@@ -26,15 +27,35 @@ public class GitlabService {
     }
 
     public void getStatus(String projectId) throws GitLabApiException {
-        List<ProjectUser> projectPager = gitLabApi
+        List<Member> projectPager = gitLabApi
             .getProjectApi()
-            .getProjectUsers(projectId);
+            .getAllMembers(projectId);
 
-        for (ProjectUser i : projectPager) {
-            System.out.println("name: " + i.getName()
-                + " username: " + i.getUsername() + " id: " + i.getId()
-                + " email: " + i.getEmail());
+        for (Member i : projectPager) {
+            System.out.println("FullName: " + i.getName()
+                + " Username: " + i.getUsername()
+                + " Status: " + getStatusByAccessLevel(i.getAccessLevel().value)
+                + " Email: " + i.getEmail());
         }
+    }
+
+    public Enum getStatusByAccessLevel(Integer accessLevel) {
+        if (accessLevel == GitlabRolePermission.GUEST.getLevel()) {
+            return GitlabRolePermission.GUEST;
+        }
+        if (accessLevel == GitlabRolePermission.REPORTER.getLevel()) {
+            return GitlabRolePermission.REPORTER;
+        }
+        if (accessLevel == GitlabRolePermission.DEVELOPER.getLevel()) {
+            return GitlabRolePermission.DEVELOPER;
+        }
+        if (accessLevel == GitlabRolePermission.MAINTAINER.getLevel()) {
+            return GitlabRolePermission.MAINTAINER;
+        }
+        if (accessLevel == GitlabRolePermission.OWNER.getLevel()) {
+            return GitlabRolePermission.OWNER;
+        }
+        return null;
     }
 
     public void delete(int projectId, String email) throws GitLabApiException {

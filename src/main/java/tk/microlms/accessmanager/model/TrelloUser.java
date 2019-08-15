@@ -3,6 +3,8 @@ package tk.microlms.accessmanager.model;
 
 import lombok.*;
 
+import java.util.Map;
+
 @Data
 @Builder
 @ToString
@@ -14,4 +16,5 @@ public class TrelloUser {
     private String key;
     private String token;
     private String username;
+    private Map<String, String> mapIdAndBoards;
 }

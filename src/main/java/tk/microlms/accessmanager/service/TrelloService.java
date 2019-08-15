@@ -14,7 +14,10 @@ import tk.microlms.accessmanager.model.TrelloUser;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 @NoArgsConstructor
 public class TrelloService {
@@ -32,12 +35,18 @@ public class TrelloService {
         this.token = token;
     }
 
+    public TrelloService(String key, String token) {
+        this.key = key;
+        this.token = token;
+    }
+
     public void addToTrello(String email) throws UnirestException, IOException {
         String url =
             String.format("https://api.trello.com/1/boards/%s/members?email=%s&key=%s&token=%s",
                 projectId, email, key, token);
 
         List<TrelloUser> usersFormDoc = trelloEmailService.reader();
+        List<String> userNames = new ArrayList<>();
 
         JSONArray responce = Unirest
             .put(url)
@@ -46,13 +55,10 @@ public class TrelloService {
             .getObject()
             .getJSONArray("members");
 
-        List<String> userNames = new ArrayList<>();
-
         for (int i = 0; i < responce.length(); i++) {
             String username = responce
                 .getJSONObject(i)
-                .get("username")
-                .toString();
+                .getString("username");
 
             userNames.add(username);
         }
@@ -75,8 +81,8 @@ public class TrelloService {
             .email(email)
             .username(rezult)
             .build();
+
         trelloEmailService.addUsersToFile(tempUser);
-        System.out.println("add to Trello");
     }
 
     public void getStatus() throws UnirestException, IOException {
@@ -96,9 +102,9 @@ public class TrelloService {
                 .getArray()
                 .getJSONObject(i)
                 .getJSONObject("member");
-            System.out.println("fullName: " + responce.get("fullName").toString()
-                + " username: " + responce.get("username")
-                + " status: " + responce.get("memberType") + " email: " +
+            System.out.println("FullName: " + responce.get("fullName").toString()
+                + " Username: " + responce.get("username")
+                + " Status: " + responce.get("memberType").toString().toUpperCase() + " Email: " +
                 trelloEmailService.getEmailByUserName(responce.get("username").toString()));
         }
     }
@@ -122,7 +128,7 @@ public class TrelloService {
 
     public TrelloUser getMyData() throws UnirestException {
         String url =
-            String.format("https://api.trello.com/1/members/me?token=%s&key=%s", token, key);
+            String.format("https://api.trello.com/1/members/me?boards=all&token=%s&key=%s", token, key);
         //disable sending cookies
         Unirest.setHttpClient(httpClient);
 
@@ -136,8 +142,43 @@ public class TrelloService {
             .builder()
             .email(jsonResponse.get("email").toString())
             .username(jsonResponse.get("username").toString())
+            .mapIdAndBoards(geListOfTrelloBoards(jsonResponse))
             .build();
+
         return trelloUser;
+    }
+
+    private Map<String, String> geListOfTrelloBoards(JSONObject jsonResponse) {
+        Map<String, String> mapIdAndBoards = new HashMap<>();
+
+        JSONArray jsonArray = jsonResponse.getJSONArray("boards");
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            if (jsonArray.length() == 0) {
+                System.out.println("Sorry, no boards available to your key\\" +
+                    "token pair, you must input board URL\n:");
+                break;
+            }
+
+            String boardId = jsonArray.getJSONObject(i).getString("id");
+            String boardName = jsonArray.getJSONObject(i).getString("name");
+            mapIdAndBoards.put(boardId, boardName);
+        }
+        return mapIdAndBoards;
+    }
+
+    public String getProjectIdByURL(String url) throws UnirestException {
+        String finalURL =
+            String.format("%s.json?token=%s&key=%s", url, token, key);
+
+        Unirest.setHttpClient(httpClient);
+
+        return Unirest
+            .get(finalURL)
+            .asJson()
+            .getBody()
+            .getObject()
+            .getString("id");
     }
 }
 

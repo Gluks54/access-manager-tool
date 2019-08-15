@@ -48,8 +48,8 @@ public class FilePathService {
             TrelloEmailService trelloEmailService = new TrelloEmailService();
             TrelloUser tempUser = trelloService.getMyData();
             trelloEmailService.intializeDoc(tempUser);
-            System.out.println("file 'email-to-username.json' was created there: "
-                + System.getProperty("user.dir"));
+            System.out.println("\n\nFile 'email-to-username.json' was created there: "
+                + System.getProperty("user.dir") + "\n\n");
         }
     }
 }

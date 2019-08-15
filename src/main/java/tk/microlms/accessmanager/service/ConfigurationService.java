@@ -3,6 +3,7 @@ package tk.microlms.accessmanager.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import tk.microlms.accessmanager.model.GitlabUser;
 import tk.microlms.accessmanager.model.GoogleDriveClient;
 import tk.microlms.accessmanager.model.GoogledriveUser;
@@ -30,5 +31,16 @@ public class ConfigurationService {
             .putPOJO("gitlabUser", gitlabUsers);
 
         objectMapper.writeValue(file, confNode);
+    }
+
+    public void saveGoogleDriveClientToFile(GoogleDriveClient googleDriveClient) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file = new File(FilePathService.USER_CONF);
+
+        ObjectNode tempNode = objectMapper
+            .createObjectNode()
+            .putPOJO("web", googleDriveClient);
+
+        objectMapper.writeValue(file, tempNode);
     }
 }

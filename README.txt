@@ -5,19 +5,18 @@ Maven move there jar,scripts,and configuration files to 'dist' folder in your ro
 Go to the folder and run script;
 
 1. Trello settings:
-'projectId','key' and 'token' - you can get by next steps:
+'key' and 'token' - you can get by next steps:
 You should visit next page 'https://developers.trello.com/page/authorization' and press
 on the link 'https://trelloUser.com/app-key' copy 'key' after that press again on the link 'Token'
 and copy your token...
-'projectId'(or id of the Board) you can get by 'Get' request:
-'https://api.trelloUser.com/1/members/{usrName}?key={your key}&token={your token}'
+'projectId'- visit page with your board and add '.json' to URL address and find field 'id';
 
 2. GitLab settings:
 'projectId'(your projectId),'userName'(your userName),'pass'(your password) - all of that you can find in your GitLab page;
 If you want share more repositories just impute number of repositories, and write data respectively;
 
 3. GoogleDrive settings:
-fileId - that is Id of the folder which should be share.
+FileId - that is Id of the folder which should be share.
 'https://developers.google.com/drive/api/v3/reference/files/list' - just use that page for getting list of 'id' your files
 (you don't should impute any param for request);
 
