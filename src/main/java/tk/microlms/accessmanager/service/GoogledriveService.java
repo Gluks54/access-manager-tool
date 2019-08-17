@@ -131,11 +131,21 @@ public class GoogledriveService {
             .list()
             .execute();
 
-        responce
-            .getFiles()
-            .forEach(x -> System.out.println(
-                "\nFileId: " + x.getId() +
-                    " Name: " + x.getName()));
+        int sizeOfList = responce.getFiles().size();
+
+        for (int i = 0; i < sizeOfList; i++) {
+            String name = responce.getFiles().get(i).getName();
+            System.out.println("Index: " + i + "." + " Name: " + name);
+        }
+    }
+
+    public String getFileIdByIndex(int index) throws IOException {
+        FileList responce = drive
+            .files()
+            .list()
+            .execute();
+
+        return responce.getFiles().get(index).getId();
     }
 }
 

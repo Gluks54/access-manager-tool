@@ -3,6 +3,7 @@ package tk.microlms.accessmanager.service;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
 import org.gitlab4j.api.models.Member;
+import org.gitlab4j.api.models.Project;
 import tk.microlms.accessmanager.model.GitlabRolePermission;
 
 import java.util.List;
@@ -64,5 +65,23 @@ public class GitlabService {
 
     public Integer getUserByEmail(String email) throws GitLabApiException {
         return gitLabApi.getUserApi().getUserByEmail(email).getId();
+    }
+
+    public void getGitLabProjects() throws GitLabApiException {
+        List<Project> tempList = gitLabApi.getProjectApi().getMemberProjects();
+
+        for (int i = 0; i < tempList.size(); i++) {
+            String nameOfProject = tempList.get(i).getName();
+            System.out.println("Index: " + i + "." + " Name: " + nameOfProject);
+        }
+    }
+
+    public String getProjectIdByIndex(int index) throws GitLabApiException {
+        return gitLabApi
+            .getProjectApi()
+            .getMemberProjects()
+            .get(index)
+            .getId()
+            .toString();
     }
 }

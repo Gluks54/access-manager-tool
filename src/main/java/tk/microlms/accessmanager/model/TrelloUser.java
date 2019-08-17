@@ -16,5 +16,6 @@ public class TrelloUser {
     private String key;
     private String token;
     private String username;
-    private Map<String, String> mapIdAndBoards;
+    private Map<String, String> mapIndexAndBoards;
+    private Map<String, String> mapIndexAndProjectId;
 }

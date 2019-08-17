@@ -1,10 +1,12 @@
 package tk.microlms.accessmanager.cli;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import org.gitlab4j.api.GitLabApiException;
 import tk.microlms.accessmanager.model.GitlabUser;
 import tk.microlms.accessmanager.model.GoogleDriveClient;
 import tk.microlms.accessmanager.model.GoogledriveUser;
 import tk.microlms.accessmanager.model.TrelloUser;
+import tk.microlms.accessmanager.service.GitlabService;
 import tk.microlms.accessmanager.service.GoogledriveService;
 import tk.microlms.accessmanager.service.TrelloService;
 
@@ -46,14 +48,14 @@ public class ConfigurationCli {
         String token = scanner.next();
 
         System.out.println("\nPlease input a board URL (e.g. https://trello.com/b/xYzAaAbc) or " +
-            "\ninput an projectId of your board (e.g. 5d32e1d1027030023622dd81) from a list, here is the list of your boards:\n");
+            "\nenter an index of your board (e.g. 1) from a list, here is the list of your boards:\n");
 
         TrelloService trelloService = new TrelloService(key, token);
 
         trelloService
             .getMyData()
-            .getMapIdAndBoards()
-            .forEach((x, y) -> System.out.println("ProjectId: " + x + " Name: " + y + "\n"));
+            .getMapIndexAndBoards()
+            .forEach((x, y) -> System.out.println("Index: " + x + "." + " Name: " + y));
 
         String tempString = scanner.next();
         String projectId;
@@ -61,9 +63,20 @@ public class ConfigurationCli {
         if (isURL(tempString)) {
             projectId = trelloService
                 .getProjectIdByURL(tempString);
-
         } else {
-            projectId = tempString;
+            while (true) {
+                tempString = scanner.next();
+
+                if (isNumeric(tempString)) {
+                    projectId = trelloService
+                        .getMyData()
+                        .getMapIndexAndProjectId()
+                        .get(tempString);
+                    break;
+                } else {
+                    System.out.println("Please enter the number...");
+                }
+            }
         }
         return TrelloUser
             .builder()
@@ -75,15 +88,27 @@ public class ConfigurationCli {
 
     public GoogledriveUser newGoogleDriveConf() throws Exception {
         System.out.println("\n\nGoogleDrive settings..." +
-            "\nEnter an fileId of your file (e.g. 1p95Rfd88CjTsfRu0l3YqV-RhIcL-Y1qa) " +
+            "\nEnter an index of your file (e.g. 1) " +
             "from a list, here is the list of your files:\n");
 
         GoogledriveService googledriveService = new GoogledriveService();
         googledriveService.getListOfFiles();
 
-        System.out.println("\n'fileId: '");
-        String fileId = scanner.next();
+        System.out.println("\n'index: '");
+        String fileId;
 
+        while (true) {
+            String tempString = scanner.next();
+
+            if (isNumeric(tempString)) {
+                fileId = googledriveService
+                    .getFileIdByIndex(Integer.valueOf(tempString));
+                break;
+            } else {
+                System.out.println("Please enter the number...");
+            }
+
+        }
         return GoogledriveUser
             .builder()
             .fileId(fileId)
@@ -125,11 +150,12 @@ public class ConfigurationCli {
             .build();
     }
 
-    public List<GitlabUser> newGitLabConf() {
-        System.out.println("GitLab settings...\n'projectId'(your projectId),'userName'(your userName),'pass'(your password) - all of that you can find in your GitLab page;\n" +
+    public List<GitlabUser> newGitLabConf() throws GitLabApiException {
+        System.out.println("GitLab settings...\n'userName'(your userName),'pass'(your password) - all of that you can find in your GitLab page;\n" +
             "\n\nEnter number of project which you want to share:");
 
         List<GitlabUser> gitlabUsers = new ArrayList<>();
+
 
         while (true) {
             String tempString = scanner.next();
@@ -137,20 +163,36 @@ public class ConfigurationCli {
                 int numberOfProjects = Integer.valueOf(tempString);
 
                 for (int i = 0; i < numberOfProjects; i++) {
-
-                    System.out.println("\nIteration: " + (i + 1) + "\n\n'projectId: '");
-                    String projId = scanner.next();
-
                     System.out.println("\n'username: '");
                     String username = scanner.next();
 
                     System.out.println("\n'pass: '");
                     String pass = scanner.next();
 
+                    GitlabService gitlabService = new GitlabService(username, pass);
+
+                    System.out.println("\nIteration: " + (i + 1) + "\n" +
+                        "\nEnter an index of your project (e.g. 1) from a list, here is the list of your projects:\n");
+
+                    gitlabService.getGitLabProjects();
+                    String projectId;
+
+                    while (true) {
+                        tempString = scanner.next();
+
+                        if (isNumeric(tempString)) {
+                            projectId = gitlabService
+                                .getProjectIdByIndex(Integer.valueOf(tempString));
+                            break;
+                        } else {
+                            System.out.println("Please enter the number...");
+                        }
+                    }
+
                     GitlabUser gitlabUser = GitlabUser
                         .builder()
                         .username(username)
-                        .projectId(projId)
+                        .projectId(projectId)
                         .pass(pass)
                         .build();
 

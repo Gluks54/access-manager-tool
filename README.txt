@@ -8,17 +8,14 @@ Go to the folder and run script;
 'key' and 'token' - you can get by next steps:
 You should visit next page 'https://developers.trello.com/page/authorization' and press
 on the link 'https://trelloUser.com/app-key' copy 'key' after that press again on the link 'Token'
-and copy your token...
-'projectId'- visit page with your board and add '.json' to URL address and find field 'id';
+and copy your token.After all of that enter index of your board;
 
 2. GitLab settings:
-'projectId'(your projectId),'userName'(your userName),'pass'(your password) - all of that you can find in your GitLab page;
-If you want share more repositories just impute number of repositories, and write data respectively;
+'userName'(your userName),'pass'(your password) - all of that you can find in your GitLab page;
+If you want share more repositories just enter number of repositories, and write data respectively;
 
 3. GoogleDrive settings:
-FileId - that is Id of the folder which should be share.
-'https://developers.google.com/drive/api/v3/reference/files/list' - just use that page for getting list of 'id' your files
-(you don't should impute any param for request);
+Just enter index of your file;
 
 4.GoogleDrive client settings:
 You can download all credentials for your GoogleDrive client there:

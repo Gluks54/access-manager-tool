@@ -24,11 +24,12 @@ public class Main {
                 result = result.toLowerCase();
 
                 if (result.equals("y")) {
+                    List<GitlabUser> gitlabUsersConf = configurationCli.newGitLabConf();
 
                     GoogleDriveClient googleDriveClientConf = configurationCli.newGoogleDriveClientConf();
                     configurationService.saveGoogleDriveClientToFile(googleDriveClientConf);
                     GoogledriveUser googledriveUserConf = configurationCli.newGoogleDriveConf();
-                    List<GitlabUser> gitlabUsersConf = configurationCli.newGitLabConf();
+
                     TrelloUser trelloUserConf = configurationCli.newTrelloConf();
 
                     configurationService

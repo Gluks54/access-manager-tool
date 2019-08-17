@@ -142,13 +142,14 @@ public class TrelloService {
             .builder()
             .email(jsonResponse.get("email").toString())
             .username(jsonResponse.get("username").toString())
-            .mapIdAndBoards(geListOfTrelloBoards(jsonResponse))
+            .mapIndexAndBoards(geMapOfTrelloBoards(jsonResponse))
+            .mapIndexAndProjectId(getMapOfTrelloProjectId(jsonResponse))
             .build();
 
         return trelloUser;
     }
 
-    private Map<String, String> geListOfTrelloBoards(JSONObject jsonResponse) {
+    private Map<String, String> geMapOfTrelloBoards(JSONObject jsonResponse) {
         Map<String, String> mapIdAndBoards = new HashMap<>();
 
         JSONArray jsonArray = jsonResponse.getJSONArray("boards");
@@ -160,11 +161,30 @@ public class TrelloService {
                 break;
             }
 
-            String boardId = jsonArray.getJSONObject(i).getString("id");
+            String index = String.valueOf(i);
             String boardName = jsonArray.getJSONObject(i).getString("name");
-            mapIdAndBoards.put(boardId, boardName);
+            mapIdAndBoards.put(index, boardName);
         }
         return mapIdAndBoards;
+    }
+
+    public Map<String, String> getMapOfTrelloProjectId(JSONObject jsonResponse) {
+        Map<String, String> mapIndexAndProjectId = new HashMap<>();
+
+        JSONArray jsonArray = jsonResponse.getJSONArray("boards");
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            if (jsonArray.length() == 0) {
+                System.out.println("Sorry, no boards available to your key\\" +
+                    "token pair, you must input board URL\n:");
+                break;
+            }
+
+            String index = String.valueOf(i);
+            String projectId = jsonArray.getJSONObject(i).getString("id");
+            mapIndexAndProjectId.put(index, projectId);
+        }
+        return mapIndexAndProjectId;
     }
 
     public String getProjectIdByURL(String url) throws UnirestException {
